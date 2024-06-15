@@ -17,6 +17,15 @@ def index(request):
     return render(request, 'index.html')
 
 def contact(request):
+    if request.method == "POST":
+        a = request.POST.get('name')
+        b = request.POST.get('email')
+        c = request.POST.get('contact')
+        d = request.POST.get('message')
+        details = ContactForm(name = a, email = b, contact = c, message = d)
+        details.save()
+
+        messages.success(request, "Thanks for Interacting with us........!")
     return render(request, 'contact.html')
 
 def blog(request):
