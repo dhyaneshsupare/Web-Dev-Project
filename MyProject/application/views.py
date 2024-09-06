@@ -10,7 +10,7 @@ def index(request):
         b = request.POST.get('email')
         c = request.POST.get('contact')
         d = request.POST.get('message')
-        enquiry = Form(name = a, email = b, contact = c, message = d)
+        enquiry = ContactForm(name = a, email = b, contact = c, message = d)
         enquiry.save()
 
         messages.success(request, "Thanks for Interacting with us......!")
